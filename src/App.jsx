@@ -7,7 +7,7 @@ function App() {
     <div className="app">
       
       <Calculator className="calc"/>
-      <img className="iphone--img" src="/img/iphone2.jpg" alt="Iphone" />
+      <img className="iphone--img" src="/iphone2.jpg" alt="Iphone" />
     </div>
   );
 }
