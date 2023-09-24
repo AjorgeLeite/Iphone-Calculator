@@ -39,7 +39,27 @@ function Calculator() {
       setInput("Error");
     }
   }
-
+  const buttons = [
+    { label: "C", color: "gray", onClick: handleClear },
+    { label: "(", color: "gray", onClick: handleParenthesisClick },
+    { label: ")", color: "gray", onClick: handleParenthesisClick },
+    { label: "/", color: "orange", onClick: handleOpClick },
+    { label: "7", onClick: handleNumClick },
+    { label: "8", onClick: handleNumClick },
+    { label: "9", onClick: handleNumClick },
+    { label: "*", color: "orange", onClick: handleOpClick },
+    { label: "4", onClick: handleNumClick },
+    { label: "5", onClick: handleNumClick },
+    { label: "6", onClick: handleNumClick },
+    { label: "-", color: "orange", onClick: handleOpClick },
+    { label: "1", onClick: handleNumClick },
+    { label: "2", onClick: handleNumClick },
+    { label: "3", onClick: handleNumClick },
+    { label: "+", color: "orange", onClick: handleOpClick },
+    { label: "0", onClick: handleNumClick },
+    { label: ".", onClick: handleNumClick },
+    { label: "=", onClick: handleCalc },
+  ];
   return (
     <>
       <div className="calculator">
@@ -48,94 +68,18 @@ function Calculator() {
           <div className="result">{input}</div>
         </div>
         <div className="buttons">
-          <button className="btn btn--gray" onClick={() => handleClear()}>
-            C
-          </button>
-          <button
-            className="btn btn--gray"
-            onClick={() => handleParenthesisClick("(")}
-          >
-            (
-          </button>
-          <button
-            className="btn btn--gray"
-            onClick={() => handleParenthesisClick(")")}
-          >
-            )
-          </button>
-          <button
-            className="btn btn--orange"
-            onClick={() => handleOpClick("/")}
-          >
-            /
-          </button>
-
-          <button className="btn" onClick={() => handleNumClick("7")}>
-            7
-          </button>
-          <button className="btn" onClick={() => handleNumClick("8")}>
-            8
-          </button>
-          <button className="btn" onClick={() => handleNumClick("9")}>
-            9
-          </button>
-          <button
-            className="btn btn--orange"
-            onClick={() => handleOpClick("*")}
-          >
-            *
-          </button>
-
-          <button className="btn" onClick={() => handleNumClick("4")}>
-            4
-          </button>
-          <button className="btn" onClick={() => handleNumClick("5")}>
-            5
-          </button>
-          <button className="btn" onClick={() => handleNumClick("6")}>
-            6
-          </button>
-          <button
-            className="btn btn--orange"
-            onClick={() => handleOpClick("-")}
-          >
-            -
-          </button>
-
-          <button className="btn" onClick={() => handleNumClick("1")}>
-            1
-          </button>
-          <button className="btn" onClick={() => handleNumClick("2")}>
-            2
-          </button>
-          <button className="btn" onClick={() => handleNumClick("3")}>
-            3
-          </button>
-          <button
-            className="btn btn--orange"
-            onClick={() => handleOpClick("+")}
-          >
-            +
-          </button>
-
-          <button
-            className="btn zero-button"
-            onClick={() => handleNumClick("0")}
-          >
-            0
-          </button>
-          <button className="btn" onClick={() => handleNumClick(".")}>
-            .
-          </button>
-          <button className="btn" onClick={handleCalc}>
-            =
-          </button>
+          {buttons.map((button, index) => (
+            <button
+              key={index}
+              className={`btn ${`btn--${button.color}`}`}
+              onClick={() => button.onClick(button.label)}
+            >
+              {button.label}
+            </button>
+          ))}
         </div>
       </div>
     </>
   );
 }
 export default Calculator;
-
-
-//component button 
