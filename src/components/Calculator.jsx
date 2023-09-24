@@ -56,7 +56,7 @@ function Calculator() {
     { label: "2", onClick: handleNumClick },
     { label: "3", onClick: handleNumClick },
     { label: "+", color: "orange", onClick: handleOpClick },
-    { label: "0", onClick: handleNumClick },
+    { label: "0", onClick: handleNumClick , type: "double size"},
     { label: ".", onClick: handleNumClick },
     { label: "=", onClick: handleCalc },
   ];
@@ -71,7 +71,7 @@ function Calculator() {
           {buttons.map((button, index) => (
             <button
               key={index}
-              className={`btn ${`btn--${button.color}`}`}
+              className={`btn ${`btn--${button.color}`} ${button.label === "0" ? "zero-button" : ""}`}
               onClick={() => button.onClick(button.label)}
             >
               {button.label}
